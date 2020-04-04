@@ -1,22 +1,38 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
+
 {% block content %}
-    <h2>Даты и заметки</h2>
-        <table border="1">
-			<tr>
-				<th>Дата</th>
-				<th>Заметка</th>
-			</tr>
-			<tr> 
-                <td>
-                {% for date in n %} 
-                        {{ date }}
-                {% endfor %}
-                </td>
-                <td>
-                {% for news in l %}
-                {{ news }}
-                {% endfor %}
-                </td>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Заметка</th>
             </tr>
-		</table>				
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row.0 }}</td>
+                <td>{{ row.1 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Дата</th>
+                <th>Заметка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

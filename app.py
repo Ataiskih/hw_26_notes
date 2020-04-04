@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from new import data, news
 
 
 app = Flask(__name__)
@@ -26,11 +25,13 @@ def add_note():
     note = request.form["new_note"]
     print(note)
     notes_file = open("notes.txt", "a+", encoding="utf-8")
-    notes_file.write( data + " " + note + "\n")
+    notes_file.write(str(data) + " " + str(note) + "\n")
     notes_file.close()
     return render_template("susses.html")
 
 @app.route("/table")
 def table():
-    data, news
-    return render_template("table.html", n=data, l=news)
+    notes_file = open("notes.txt", "r", encoding="utf-8")
+    rows = [[row[:10], row[10:].strip()] for row in notes_file]
+    notes_file.close()
+    return render_template("table.html", rows=rows)
