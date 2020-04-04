@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Даты и заметки</h2>
+        <table border="1">
+			<tr>
+				<th>Дата</th>
+				<th>Заметка</th>
+			</tr>
+			<tr> 
+                <td>
+                {% for date in n %} 
+                        {{ date }}
+                {% endfor %}
+                </td>
+                <td>
+                {% for news in l %}
+                {{ news }}
+                {% endfor %}
+                </td>
+            </tr>
+		</table>				
+{% endblock %}

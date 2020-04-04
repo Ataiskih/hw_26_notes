@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Notes{% endblock %}</title>
+</head>
+<body>
+    <div>
+        <a href="{{ url_for('index') }}">Главная</a> |
+        <a href="{{ url_for('hello',user_name='аноним') }}">Приветствие</a> |
+        <a href="{{ url_for('add_note_form') }}">Добавить заметку</a> |
+        <a href="{{ url_for('table') }}">Таблица заметок</a> 
+    </div>
+    <hr>
+    {% block content %}
+    
+    {% endblock %}
+</body>
+</html>

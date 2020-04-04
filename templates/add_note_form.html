@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Добавть заметку</h3>
+<form action="{{ url_for('add_note') }}" method="POST">
+<input type="text" name="new_note">
+<button>Добавть</button>
+<hr>
+<h3>Добавть дату</h3>
+<input type="date" name="dt">
+<hr>
+</form>
+{% endblock %}
