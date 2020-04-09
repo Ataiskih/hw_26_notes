@@ -4,14 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Notes{% endblock %}</title>
+  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mystyle.css') }}">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    {%  block staticfiles %}
+    {% endblock %}
 </head>
 <body>
-    <div>
-        <a href="{{ url_for('index') }}">Главная</a> |
-        <a href="{{ url_for('hello',user_name='аноним') }}">Приветствие</a> |
-        <a href="{{ url_for('add_note_form') }}">Добавить заметку</a> |
-        <a href="{{ url_for('table') }}">Таблица заметок</a> 
-    </div>
+ 
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{{ url_for('index') }}">Notes</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('hello',user_name='аноним') }}">Приветствие</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('add_note_form') }}">Добавить заметку</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('table') }}">Таблица заметок</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+
     <hr>
     {% block content %}
     

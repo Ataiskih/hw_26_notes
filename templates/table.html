@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <table border="1">
+
+    <table border="1" class="table">
         <thead>
             <tr>
                 <th>Дата</th>
@@ -17,22 +18,5 @@
             {% endfor %}
         </tbody>
     </table>
-    <hr>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Дата</th>
-                <th>Заметка</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in rows %}
-            <tr>
-                {% for cell in row %}
-                <td>{{ cell }}</td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    
 {% endblock %}
