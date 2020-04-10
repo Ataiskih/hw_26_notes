@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block staticfiles %}
@@ -8,12 +9,12 @@
 {% endblock %}
 
 {% block content %}
-    <div>Сайт для заметок</div>
+    <h2 class="alert alert-success">Сайт для заметок</h2>
     <h2>Все заметки</h2>
-    <ol>
+    <ol class="list-group list-group-flush">
         {% for notes in lst_note %}
-        <li>{{ notes }}</li>
+        <li class="list-group-item">{{ notes }}</li>
         {% endfor %}
     </ol>
 
-{% endblock %}
+{% endblock %}  
