@@ -18,7 +18,7 @@
  
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <!-- Brand -->
-        <a class="navbar-brand" href="{{ url_for('index',user_name='Anonymous') }}">Notes</a>
+        <a class="navbar-brand" href="{{ url_for('index',user_name='Guest') }}">My notes</a>
       
         <!-- Toggler/collapsibe Button -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -28,12 +28,6 @@
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('add_note_form') }}">Добавить заметку</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('table') }}">Таблица заметок</a>
-              </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('form') }}">Форма</a>
               </li>
