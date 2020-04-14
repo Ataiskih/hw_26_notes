@@ -12,15 +12,6 @@ def index(user_name = ""):
     note_file.close()
     return render_template("index.html", lst_note = lst_note, user_name = user_name)
 
-@app.route("/add_note", methods=["POST"])
-def add_note():
-    data = request.form.get("dt")
-    note = request.form.get("new_note")
-    notes_file = open("notes.txt", "a+", encoding="utf-8")
-    notes_file.write(str(data) + " " + str(note) + "\n")
-    notes_file.close()
-    return render_template("susses.html")
-
 @app.route("/form", methods=["POST", "GET"])
 def form():
     if request.method == "POST":
@@ -29,7 +20,8 @@ def form():
         notes_file = open("notes.txt", "a+", encoding="utf-8")
         notes_file.write(str(data) + " " + str(note) + "\n")
         notes_file.close()
-    
+        return render_template("susses.html")
+
     notes_file = open("notes.txt", "r", encoding="utf-8")
     rows = [[datetime.strptime(row[:10], "%Y-%m-%d"), row[10:].strip()] for row in notes_file]
     notes_file.close()
