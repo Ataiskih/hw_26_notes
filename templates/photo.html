@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block staticfiles %}
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6">
+        <h2 class="alert alert-success">Добавить изображение</h2>
+            <form method="POST">
+                <div class="input-group mb-3 input-group-lg">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">url изображения</span>
+                        </div>
+                            <input type="text" name="photoo" placeholder="Введи url изображения" class="form-control">
+                </div>
+                             <button class="btn btn-outline-dark btn-lg">Добавить</button>
+            </form>
+    </div>
+</div>
+
+<h2>Все изображения</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for photo in lst_photo  %}
+        <tr>
+            <td><img src="{{ photo }}" alt=""></li></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

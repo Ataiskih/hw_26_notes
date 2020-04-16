@@ -26,3 +26,18 @@ def form():
     rows = [[datetime.strptime(row[:10], "%Y-%m-%d"), row[10:].strip()] for row in notes_file]
     notes_file.close()
     return render_template("form.html", rows=rows)
+
+@app.route("/photo", methods=["POST", "GET"])
+def photo():
+    if request.method == "POST":
+        add_photo = request.form.get("photoo")
+        photo_file = open("photo.txt", "a+", encoding="utf-8")
+        photo_file.write(str(add_photo) + "\n")
+        photo_file.close()
+        return render_template("susses.html")
+    
+    photo_file = open("photo.txt", "r", encoding="utf-8")
+    lst_photo = [row for row in photo_file]
+    photo_file.close()
+    return render_template("photo.html", lst_photo =lst_photo)
+    
