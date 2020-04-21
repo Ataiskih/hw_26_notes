@@ -16,25 +16,38 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">url изображения</span>
                         </div>
-                            <input type="text" name="photoo" placeholder="Введи url изображения" class="form-control">
+                            <input type="text" name="url" placeholder="Введи url изображения" class="form-control">
                 </div>
+            <div class="form-group">
+                <input class='form-control' type="text" name="title" placeholder="Заголовок">
+            </div>
+                    <div class="form-group">
+                        <textarea name="description" class="form-control" rows="5" placeholder="Описание"></textarea>
+                    </div>
                              <button class="btn btn-outline-dark btn-lg">Добавить</button>
             </form>
+            <br>
+            <br>
+            <br>
+            <hr>
     </div>
 </div>
-
 <h2>Все изображения</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for photo in lst_photo  %}
-        <div><img src="{{ photo }}" alt=""></div><br>
+<br>
+<br>
+<div class="col-lg-6">
+        {% for image in images  %}
+            <h3>{{ image.0 }}</h3>
+                    <br>
+        <div>
+            <img src="{{ image.1 }}" alt="">
+        </div>
+                    <br>
+        <div>
+            {{ image.2 }}
+        </div>
+                <hr>
+                <br>
         {% endfor %}
-    </tbody>
-</table>
+</div>
 {% endblock %}
