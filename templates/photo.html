@@ -37,10 +37,11 @@
 <br>
 <div class="col-lg-6">
         {% for image in images  %}
-            <h3>{{ image.0 }}</h3>
+           <a href="{{ url_for('page', number=loop.index) }}"><h3>{{ image.0 }}</h3>
+           </a>
                     <br>
         <div>
-            <img src="{{ image.1 }}" alt="">
+            <img src="{{ image.1 }}">
         </div>
                     <br>
         <div>

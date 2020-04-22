@@ -72,4 +72,11 @@ def photo():
     # images = [[row[len(row.split()[0]):], row.split()[0]] for row in photo_file]
     # photo_file.close()
     return render_template("photo.html", images=images)
-    
+
+#  Страница подробное отображения ФОТО: заголовок, url, описание в базы xlsx и txt
+@app.route("/page/<number>")
+def page(number):
+    excel = load_workbook("mybase.xlsx")
+    page = excel["Фото"]
+    lst_row = page[number]
+    return render_template("page.html", lst = lst_row)
