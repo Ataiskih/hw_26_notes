@@ -29,7 +29,8 @@ def form():
         page = excel["Заметки"]
         page.append([data, note])
         excel.save("mybase.xlsx")
-        return render_template("susses.html")
+        message = "Ваша заметка  была добавлена успешно" # добавление сообщения на стр susses 
+        return render_template("susses.html", message = message)
 
     # Вариант отображения txt файла (!ИСПРАВЛЕНО: encoding='utf-8-sig')
     notes_file = open("notes.txt", "r+", encoding='utf-8-sig')
@@ -54,7 +55,8 @@ def photo():
         page = excel["Фото"]
         page.append([title, urls, descriptions])
         excel.save("mybase.xlsx")
-        return render_template("susses.html")
+        message = "Ваше изображение было добавлено успешно" # добавление сообщения на стр susses 
+        return render_template("susses.html", message = message)
     
     # Вариант 1: Отображение через базу xlsx (более оптимальный)
     excel = load_workbook("mybase.xlsx")
